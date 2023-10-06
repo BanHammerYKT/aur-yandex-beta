@@ -4,8 +4,8 @@
 
 _pkgname=browser-beta
 pkgname=yandex-${_pkgname}
-pkgver=23.9.1.837_1
-_pkgver=23.9.1.837-1
+pkgver=23.9.1.1028_1
+_pkgver=23.9.1.1028-1
 pkgrel=1
 #epoch=1
 

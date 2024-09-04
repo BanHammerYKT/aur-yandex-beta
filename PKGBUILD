@@ -29,7 +29,7 @@ provides=(yandex-browser-beta)
 conflicts=(yandex-browser-beta)
 
 source=("${pkgname}-${pkgver}.deb::http://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-beta/yandex-browser-beta_${_pkgver}_amd64.deb")
-sha256sums=("5642f9a00816edb7d7915f837e1d23500dccb76e9feaf1c60a9dc271af8cebb8")
+sha256sums=("bdc5fff4c5aa79477f6257331e2bdc2faf938a09c4f0d93aacee436828dfd924")
 install=yandex-browser.install
 
 prepare() {

@@ -17,7 +17,7 @@ getformattedversion() {
 
 # get formatted version from PKGBUILD
 getlocalversion() {
-    version=$(cat .SRCINFO | grep 'pkgver = ' | cut -d '=' -f 2 | sed "s/_/-/")
+    version=$(cat .SRCINFO | grep 'pkgver = ' | cut -d '=' -f 2 | sed "s/_/-/g;s/ //g")
     echo "$version"
 }
 
@@ -46,6 +46,12 @@ updatelocalrepo() {
 
 LOCAL_VERSION=$(getlocalversion)
 REPO_VERSION=$(getrepoversion)
+
+if [[ -z "$REPO_VERSION" ]]; then
+    echo "Error: Could not retrieve the remote version." >&2
+    exit 1
+fi
+
 LOCAL_FORMATTED_VERSION=$(getformattedversion $LOCAL_VERSION)
 REPO_FORMATTED_VERSION=$(getformattedversion $REPO_VERSION)
 REPO_DEB_URL=$(echo $REPO_DEB_URL | sed "s/\%version\%/$REPO_VERSION/")

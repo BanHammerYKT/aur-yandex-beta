@@ -24,7 +24,7 @@ getlocalversion() {
 # get formatted version from repo
 getrepoversion() {
     html=$(curl -ks "https://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-beta/")
-    version=$(echo $html | grep -oP '"yandex-browser-beta_\K.+?(?=_)')
+    version=$(echo $html | grep -oP '"yandex-browser-beta_\K.+?(?=_)' | sort -V | tail -n 1)
     echo "$version"
 }
 
@@ -61,7 +61,7 @@ echo "Local formatted version: $LOCAL_FORMATTED_VERSION"
 echo "Repo formatted version: $REPO_FORMATTED_VERSION"
 echo "Repo deb url: $REPO_DEB_URL"
 
-if [[ $LOCAL_FORMATTED_VERSION != $REPO_FORMATTED_VERSION ]]; then
+if (($LOCAL_FORMATTED_VERSION < $REPO_FORMATTED_VERSION)); then
     echo "New version detected. Updating local repo ..."
     updatelocalrepo
     echo "REPO_VERSION=$REPO_VERSION" >> "$GITHUB_OUTPUT"

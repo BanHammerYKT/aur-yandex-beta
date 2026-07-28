@@ -4,8 +4,8 @@
 
 _pkgname=browser-beta
 pkgname=yandex-${_pkgname}
-pkgver=26.4.1.1113_1
-_pkgver=26.4.1.1113-1
+pkgver=26.6.1.1005_1
+_pkgver=26.6.1.1005-1
 pkgrel=1
 #epoch=1
 
@@ -29,7 +29,7 @@ provides=(yandex-browser-beta)
 conflicts=(yandex-browser-beta)
 
 source=("${pkgname}-${pkgver}.deb::http://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-beta/yandex-browser-beta_${_pkgver}_amd64.deb")
-sha256sums=("c4dee5534b28a1df60c0fd06d6baa559e77c78aa0e2e886d385a2a43e6421c1c")
+sha256sums=("d494e6eeb98940512bcf89ff9feee3d6b7cb96a34673e3fe5ce9f38c660aab9c")
 install=yandex-browser.install
 
 prepare() {
